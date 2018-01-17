@@ -6,6 +6,7 @@ namespace BE
 {
     public class Contract
     {
+        #region fields
         private static int counter = 0;
         private readonly int num;
         private readonly string idNanny;
@@ -17,7 +18,9 @@ namespace BE
         private bool isHour;
         private DateTime dateBegin;
         private DateTime dateEnd;
+        #endregion
 
+        #region constructors
         public Contract(string idN, string idC, bool isM, bool isS, double payH, double sa, bool isH, DateTime dateB, DateTime dateE)
         {
             num = counter++;
@@ -38,7 +41,9 @@ namespace BE
         {
             num = counter++;
         }
+        #endregion
 
+        #region properties
         public int Num => num;
 
         public string IdNanny => idNanny;
@@ -57,10 +62,11 @@ namespace BE
             set
             {
                 if (value <= DateBegin)
-                    throw;
+                    throw new Exception("'Date of end' can't before 'Date of begin'");
                 dateEnd = value;
             }
         }
+        #endregion
 
         public override string ToString()
         {
@@ -108,7 +114,7 @@ namespace BE
             {
                 t = id.ToCharArray()[i];
                 if (t < '0' || t > '9')
-                    throw;
+                    throw new Exception("ID is invalid!");
             }
         }
 

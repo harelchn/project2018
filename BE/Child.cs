@@ -6,13 +6,15 @@ namespace BE
 {
     public class Child
     {
-        private readonly string idC;
-        private readonly string idM;
+        #region fields
+        private string idC;
+        private string idM;
         private string name;
         private DateTime birthDate;
         private bool isSpecial;
         private string specialNeeds;
-
+        #endregion
+        public Child() { }
         public Child(string idC, string idM, string name, DateTime bD, bool isS, string sp)
         {
             CheckId(idC);
@@ -25,7 +27,19 @@ namespace BE
             SpecialNeeds = sp;
         }
 
-        public string IdC => idC;
+        #region properties
+        public string IdC
+        {
+            get => idC;
+            set
+            {
+                if(idC==null)
+                {
+                    CheckId(value);
+                    idC = value;
+                }
+            }
+        }
 
         public string IdM => idM;
 
@@ -39,7 +53,7 @@ namespace BE
                 {
                     t = value.ToCharArray()[i];
                     if (t < 'A' || t > 'Z' && t < 'a' || t > 'z')
-                        throw;
+                        throw new Exception("This name is invalid!");
                 }
                 name = value;
             }
@@ -50,12 +64,13 @@ namespace BE
             set
             {
                 if (value > DateTime.Now)
-                    throw;
+                    throw new Exception("birth date can't be in the future!");
                 birthDate = value;
             }
         }
         public bool IsSpecial { get => isSpecial; set => isSpecial = value; }
         public string SpecialNeeds { get => specialNeeds; set => specialNeeds = value; }
+        #endregion
 
         public override string ToString()
         {
@@ -91,7 +106,7 @@ namespace BE
             {
                 t = id.ToCharArray()[i];
                 if (t < '0' || t > '9')
-                    throw;
+                    throw new Exception("ID is invalid!");
             }
         }
     }

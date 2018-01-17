@@ -6,7 +6,8 @@ namespace BE
 {
     public class Mother
     {
-        private readonly string id;
+        #region fields
+        private string id;
         private string l_name;
         private string f_name;
         private string phone;
@@ -14,18 +15,13 @@ namespace BE
         private string addressNanny;
         private bool[] nannyDay = new bool[6];
         private TimeSpan[,] nannyTime = new TimeSpan[6, 2];
-        private bool payHour;
+        private bool isHour;
+        #endregion 
+        public Mother() { }
 
-        public Mother(string id, string l, string f, string ph, string adM, string adN, bool[] nannyD, TimeSpan[,] nannyT, bool payH)
+        public Mother(string id, string l, string f, string ph, string adM, string adN, bool[] nannyD, TimeSpan[,] nannyT, bool isH)
         {
-            char t;
-            for (int i = 0; i < id.Length; i++)
-            {
-                t = id.ToCharArray()[i];
-                if (t < '0' || t > '9')
-                    throw;
-            }
-            this.id = id;
+            Check_ID(id);
             L_name = l;
             F_name = f;
             Phone = ph;
@@ -33,10 +29,19 @@ namespace BE
             AddressNanny = adN;
             NannyDay = nannyD;
             NannyTime = nannyT;
-            PayHour = payH;
+            IsHour = isH;
         }
 
-        public string ID => id;
+        #region properties
+        public string ID
+        {
+            get => id;
+            set
+            {
+                if (id == null)
+                    Check_ID(value);
+            }
+        }
 
         public string L_name
         {
@@ -48,7 +53,7 @@ namespace BE
                 {
                     t = value.ToCharArray()[i];
                     if (t < 'A' || t > 'Z' && t < 'a' || t > 'z')
-                        throw;
+                        throw new Exception("This last name is invalid!");
                 }
                 l_name = value;
             }
@@ -64,7 +69,7 @@ namespace BE
                 {
                     t = value.ToCharArray()[i];
                     if (t < 'A' || t > 'Z' && t < 'a' || t > 'z')
-                        throw;
+                        throw new Exception("This first name is invalid!");
                 }
                 f_name = value;
             }
@@ -79,7 +84,7 @@ namespace BE
                 {
                     t = value.ToCharArray()[i];
                     if (t < '0' || t > '9' || value.Length != 10)
-                        throw;
+                        throw new Exception("This phone number is invalid!");
                 }
                 phone = value;
             }
@@ -90,14 +95,14 @@ namespace BE
             set
             {
                 char t;
-                string[] check = value.Split(',', ' ');
+                string[] check = value.Split(','/*, ','*/);
                 for (int i = 0; i < check.Length; i++)
                 {
                     for (int j = 0; j < check[i].Length; ++j)
                     {
                         t = value.ToCharArray()[j];
                         if (t < 'A' || t > 'Z' && t < 'a' || t > 'z')
-                            throw;
+                            throw new Exception("Mother's address is invalid!");
                     }
                 }
                 addressMother = value;
@@ -109,14 +114,14 @@ namespace BE
             set
             {
                 char t;
-                string[] check = value.Split(',', ' ');
+                string[] check = value.Split(','/*, ','*/);
                 for (int i = 0; i < check.Length; i++)
                 {
                     for (int j = 0; j < check[i].Length; ++j)
                     {
                         t = value.ToCharArray()[j];
                         if (t < 'A' || t > 'Z' && t < 'a' || t > 'z')
-                            throw;
+                            throw new Exception("Nanny's address is invalid!");
                     }
                 }
                 addressNanny = value;
@@ -124,7 +129,8 @@ namespace BE
         }
         public bool[] NannyDay { get => nannyDay; set => nannyDay = value; }
         public TimeSpan[,] NannyTime { get => nannyTime; set => nannyTime = value; }
-        public bool PayHour { get => payHour; set => payHour = value; }
+        public bool IsHour { get => isHour; set => isHour = value; }
+        #endregion
 
         public override string ToString()
         {
@@ -164,6 +170,18 @@ namespace BE
                 default:
                     return "Friday";
             }
+        }
+
+        private void Check_ID(string id)
+        {
+            char t;
+            for (int i = 0; i < id.Length; i++)
+            {
+                t = id.ToCharArray()[i];
+                if (t < '0' || t > '9')
+                    throw new Exception("The ID is invalid!");
+            }
+            this.id = id;
         }
     }
 }

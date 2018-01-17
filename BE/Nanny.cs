@@ -4,6 +4,7 @@ namespace BE
 {
     public class Nanny
     {
+        #region fields
         private readonly string id;
         private string l_name;
         private string f_name;
@@ -26,6 +27,8 @@ namespace BE
         private bool religious;
         private bool lunch;
         private bool playground;
+        #endregion
+        public Nanny() { }
 
         public Nanny(string id, string l, string f, DateTime bD, string ph, string ad, bool el, int fl, int ex, int mC, int miA, int maA, bool isH, double payH, double sa, bool[] workD, TimeSpan[,] workT, bool dayO_Ed, string[] re, bool rel = false, bool lun=true, bool play=false)
         {
@@ -34,7 +37,7 @@ namespace BE
             {
                 t = id.ToCharArray()[i];
                 if (t < '0' || t > '9')
-                    throw;
+                    throw new Exception("This ID is invalid!");
             }
             this.id = id;
             L_name = l;
@@ -60,6 +63,7 @@ namespace BE
             Playground = play;
         }
 
+        #region properties
         public string ID => id;
 
         public string L_name
@@ -72,7 +76,7 @@ namespace BE
                 {
                     t = value.ToCharArray()[i];
                     if (t < 'A' || t > 'Z' && t < 'a' || t > 'z')
-                        throw;
+                        throw new Exception("This last name is invalid!");
                 }
                 l_name = value;
             }
@@ -88,7 +92,7 @@ namespace BE
                 {
                     t = value.ToCharArray()[i];
                     if (t < 'A' || t > 'Z' && t < 'a' || t > 'z')
-                        throw;
+                        throw new Exception("This first name is invalid!");
                 }
                 f_name = value;
             }
@@ -100,7 +104,7 @@ namespace BE
             set
             {
                 if (value > DateTime.Now)
-                    throw;
+                    throw new Exception("birth date can't be in the future!");
                 birthDate = value;
             }
         }
@@ -114,7 +118,7 @@ namespace BE
                 {
                     t = value.ToCharArray()[i];
                     if (t < '0' || t > '9' || value.Length != 10)
-                        throw;
+                        throw new Exception("This phone number is invalid!");
                 }
                 phone = value;
             }
@@ -132,7 +136,7 @@ namespace BE
                     {
                         t = value.ToCharArray()[j];
                         if (t < 'A' || t > 'Z' && t < 'a' || t > 'z')
-                            throw;
+                            throw new Exception("This address is invalid!");
                     }
                 }
                 address = value;
@@ -146,7 +150,7 @@ namespace BE
             set
             {
                 if (value > Age())
-                    throw;
+                    throw new Exception("'Experience' can't be bigger than 'Birth date'!");
                 experience = value;
             }
         }
@@ -156,7 +160,7 @@ namespace BE
             set
             {
                 if (value < 1)
-                    throw;
+                    throw new Exception("'Maximum number of children' can't be smaller than 1!");
                 maxChild = value;
             }
         }
@@ -167,7 +171,7 @@ namespace BE
             set
             {
                 if (value < MinAge)
-                    throw;
+                    throw new Exception("'Maximum age of child' can't be smaller than 'Minimum age of child'!");
                 maxAge = value;
             }
         }
@@ -178,7 +182,7 @@ namespace BE
             set
             {
                 if (value < 0)
-                    throw;
+                    throw new Exception("'Pay per hour' can't be smaller than 0!");
                 payHour = value;
             }
         }
@@ -188,7 +192,7 @@ namespace BE
             set
             {
                 if (value < 0)
-                    throw;
+                    throw new Exception("'Salary' can't be smaller than 0!");
                 salaryMonth = value;
             }
         }
@@ -199,6 +203,7 @@ namespace BE
         public bool Religious { get => religious; set => religious = value; }
         public bool Lunch { get => lunch; set => lunch = value; }
         public bool Playground { get => playground; set => playground = value; }
+        #endregion
 
         public override string ToString()
         {
@@ -280,7 +285,7 @@ namespace BE
             return "No";
         }
 
-        private int Age()
+        public int Age()
         {
             if (BirthDate.Month > DateTime.Now.Month)
                 return DateTime.Now.Year - BirthDate.Year;

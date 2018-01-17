@@ -9,10 +9,10 @@ namespace DS
 {
     public class DataSource
     {
-        private static List<Nanny> nannies;
-        private static List<Mother> mothers;
-        private static List<Child> children;
-        private static List<Contract> contracts;
+        private static List<Nanny> nannies = new List<Nanny>();
+        private static List<Mother> mothers = new List<Mother>();
+        private static List<Child> children = new List<Child>();
+        private static List<Contract> contracts = new List<Contract>();
 
         public static List<Nanny> Nannies { get => nannies; set => nannies = value; }
         public static List<Mother> Mothers { get => mothers; set => mothers = value; }
