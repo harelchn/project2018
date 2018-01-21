@@ -37,6 +37,7 @@ namespace DAL
         #region mother
         public void Add_Mother(Mother m)
         {
+            //if (m.ID==null || m.F_name==null||m.L_name==null||m.)
             foreach (Mother item in DataSource.Mothers)
                 if (item.ID == m.ID)
                     throw new Exception("This mother has already entered!");

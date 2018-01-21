@@ -11,9 +11,9 @@ namespace BL
         static IBL bl = null;
 
         public static IBL GetBL()
-        { 
-            if (bl == null) 
-            bl = new BL_imp();
+        {
+            if (bl == null)
+                bl = new BL_imp();
             return bl;
         }
     }

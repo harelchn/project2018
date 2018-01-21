@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLWPF"
-        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PLWPF.Add_Mother"
+        xmlns:BE="clr-namespace:BE;assembly=BE" x:Name="Window" x:Class="PLWPF.Add_Mother"
         mc:Ignorable="d"
         Title="Add_Mother" Height="450" Width="255" Loaded="Window_Loaded">
     <Window.Resources>

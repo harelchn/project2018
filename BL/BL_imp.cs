@@ -70,6 +70,12 @@ namespace BL
             Child child = dal.GetChild().Find(x => x.IdC == c.IdChild);
             Nanny nanny = dal.GetNanny().Find(x => x.ID == c.IdNanny);
             Mother mother = dal.GetMother().Find(x => x.ID == child.IdM);
+
+            if (nanny == null)
+                throw new Exception("This nanny does not exist..");
+            if (child == null)
+                throw new Exception("This child does not exist..");
+
             double pay = nanny.SalaryMonth;
 
             child.BirthDate.AddMonths(3);

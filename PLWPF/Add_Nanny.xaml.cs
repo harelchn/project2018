@@ -21,11 +21,13 @@ namespace PLWPF
     /// </summary>
     public partial class Add_Nanny : Window
     {
+        IBL bl;
         Nanny nanny = new Nanny();
         public Add_Nanny()
         {
             InitializeComponent();
 
+            bl = FactoryBL.GetBL();
             Grid.DataContext = nanny;
         }
 
@@ -39,8 +41,8 @@ namespace PLWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FactoryBL.GetBL().Add_Nanny(nanny);
-            Grid.Visibility = Visibility.Hidden;
+            bl.Add_Nanny(nanny);
+            Window.Visibility = Visibility.Hidden;
         }
     }
 }

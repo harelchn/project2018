@@ -20,10 +20,13 @@ namespace PLWPF
     /// </summary>
     public partial class Add_Child : Window
     {
+        IBL bl;
         Child child = new Child();
         public Add_Child()
         {
             InitializeComponent();
+
+            bl = FactoryBL.GetBL();
             Grid.DataContext = child;
         }
 
@@ -37,8 +40,8 @@ namespace PLWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FactoryBL.GetBL().Add_Child(child);
-            Grid.Visibility = Visibility.Hidden;
+            bl.Add_Child(child);
+            Window.Visibility = Visibility.Hidden;
         }
     }
 }

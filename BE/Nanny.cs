@@ -128,17 +128,7 @@ namespace BE
             get => address;
             set
             {
-                char t;
-                string[] check = value.Split(',', ' ');
-                for (int i = 0; i < check.Length; i++)
-                {
-                    for (int j = 0; j < check[i].Length; ++j)
-                    {
-                        t = value.ToCharArray()[j];
-                        if (t < 'A' || t > 'Z' && t < 'a' || t > 'z')
-                            throw new Exception("This address is invalid!");
-                    }
-                }
+                check_Address(value);
                 address = value;
             }
         }
@@ -293,5 +283,21 @@ namespace BE
                 return DateTime.Now.Year - BirthDate.Year;
             return DateTime.Now.Year - BirthDate.Year - 1;
         }
+
+        private void check_Address(string value)
+        {
+            int counter = 0;
+            char[] check = value.ToCharArray();
+            for (int i = 0; i < check.Length; i++)
+            {
+                if (check[i] == ',')
+                    counter++;
+                else if (check[i] < 'A' || check[i] > 'Z' && check[i] < 'a' || check[i] > 'z')
+                    throw new Exception("The address is invalid!");
+            }
+            if (counter != 2)
+                throw new Exception("The address is invalid!");
+        }
+
     }
 }

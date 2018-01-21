@@ -21,11 +21,13 @@ namespace PLWPF
     /// </summary>
     public partial class Add_Mother : Window
     {
+        IBL bl;
         Mother mother = new Mother();
         public Add_Mother()
         {
             InitializeComponent();
 
+            bl = FactoryBL.GetBL();
             Grid.DataContext = mother;
         }
 
@@ -39,8 +41,8 @@ namespace PLWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FactoryBL.GetBL().Add_Mother(mother);
-            Grid.Visibility = Visibility.Visible;
+            bl.Add_Mother(mother);
+            Window.Visibility = Visibility.Visible;
         }
     }
 }

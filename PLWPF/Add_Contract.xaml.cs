@@ -21,11 +21,13 @@ namespace PLWPF
     /// </summary>
     public partial class Add_Contract : Window
     {
+        IBL bl;
         Contract contract = new Contract();
         public Add_Contract()
         {
             InitializeComponent();
 
+            bl = FactoryBL.GetBL();
             Grid.DataContext = contract;
         }
 
@@ -39,8 +41,8 @@ namespace PLWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FactoryBL.GetBL().Add_Contract(contract);
-            Grid.Visibility = Visibility.Hidden;
+            bl.Add_Contract(contract);
+            Window.Visibility = Visibility.Hidden;
         }
     }
 }
