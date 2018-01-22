@@ -14,8 +14,8 @@ namespace BE
         private bool isSpecial;
         private string specialNeeds;
         #endregion
-        public Child() { }
-        public Child(string idC, string idM, string name, DateTime bD, bool isS, string sp)
+        public Child() { isSpecial = false; }
+        public Child(string idC, string idM, string name, DateTime bD, string sp)
         {
             CheckId(idC);
             this.idC = idC;
@@ -23,8 +23,10 @@ namespace BE
             this.idM = idM;
             Name = name;
             BirthDate = bD;
-            IsSpecial = isS;
             SpecialNeeds = sp;
+            if (sp == null)
+                isSpecial = false;
+            else isSpecial = true;
         }
 
         #region properties
@@ -49,6 +51,8 @@ namespace BE
             set
             {
                 char t;
+                if (value == null)
+                    throw new Exception("Enter a name!");
                 for (int i = 0; i < value.Length; ++i)
                 {
                     t = value.ToCharArray()[i];
@@ -69,7 +73,16 @@ namespace BE
             }
         }
         public bool IsSpecial { get => isSpecial; set => isSpecial = value; }
-        public string SpecialNeeds { get => specialNeeds; set => specialNeeds = value; }
+        public string SpecialNeeds
+        {
+            get => specialNeeds;
+            set
+            {
+                specialNeeds = value;
+                if (specialNeeds != null)
+                    isSpecial = true;
+            }
+        }
         #endregion
 
         public override string ToString()
@@ -102,11 +115,13 @@ namespace BE
         private void CheckId(string id)
         {
             char t;
+            if (id == null)
+                throw new Exception("Enter Id!");
             for (int i = 0; i < id.Length; i++)
             {
                 t = id.ToCharArray()[i];
                 if (t < '0' || t > '9')
-                    throw new Exception("ID is invalid!");
+                    throw new Exception("Id is invalid!");
             }
         }
     }

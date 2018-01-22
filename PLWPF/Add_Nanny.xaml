@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PLWPF"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Name="Window" x:Class="PLWPF.Add_Nanny"
         mc:Ignorable="d"
-        Title="Add_Nanny" Height="829" Width="248" Loaded="Window_Loaded">
+        Title="Add_Nanny" Height="829" Width="482" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="nannyViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Nanny}, CreateList=True}"/>
     </Window.Resources>
@@ -16,10 +16,12 @@
             <RowDefinition Height="614*"/>
             <RowDefinition Height="108*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" Grid.Row="1">
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" Grid.Row="1" Width="472">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" MinWidth="132"/>
+                <ColumnDefinition Width="93*"/>
+                <ColumnDefinition Width="161*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -42,45 +44,45 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Birth Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <DatePicker x:Name="birthDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" SelectedDate="{Binding BirthDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
-            <Label Content="Day Off Ed:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <CheckBox x:Name="dayOff_EdCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding DayOff_Ed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <Label Content="Elevator:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <CheckBox x:Name="elevatorCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Elevator, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <Label Content="Experience:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBox x:Name="experienceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Experience, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="F name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-            <TextBox x:Name="f_nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding F_name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Floor:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-            <TextBox x:Name="floorTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Floor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
-            <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding ID, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Is Hour:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
-            <CheckBox x:Name="isHourCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
-            <Label Content="L name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding L_name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Lunch:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
-            <CheckBox x:Name="lunchCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Lunch, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
-            <Label Content="Max Age:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
-            <TextBox x:Name="maxAgeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="11" Text="{Binding MaxAge, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Max Child:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
-            <TextBox x:Name="maxChildTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding MaxChild, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Min Age:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
-            <TextBox x:Name="minAgeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding MinAge, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Pay Hour:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
-            <TextBox x:Name="payHourTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding PayHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Phone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
-            <TextBox x:Name="phoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="15" Text="{Binding Phone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Playground:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
-            <CheckBox x:Name="playgroundCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Playground, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="16" VerticalAlignment="Center"/>
-            <Label Content="Religious:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="17" VerticalAlignment="Center"/>
-            <CheckBox x:Name="religiousCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Religious, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="17" VerticalAlignment="Center"/>
-            <Label Content="Salary Month:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="18" VerticalAlignment="Center"/>
-            <TextBox x:Name="salaryMonthTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="18" Text="{Binding SalaryMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="First Name:" HorizontalAlignment="Left" Margin="3,3,0,3" VerticalAlignment="Center" Height="26" Width="70"/>
+            <TextBox x:Name="f_nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Text="{Binding F_name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Last Name:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center" Height="26" Width="69"/>
+            <TextBox x:Name="l_nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="1" Text="{Binding L_name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Id:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="2" VerticalAlignment="Center" Height="26" Width="23"/>
+            <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="2" Text="{Binding ID, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Address:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="3" VerticalAlignment="Center" Height="26" Width="55"/>
+            <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="3" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Birth Date:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="4" VerticalAlignment="Center" Height="26" Width="66"/>
+            <DatePicker x:Name="birthDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="4,4,0,4" Grid.Row="4" SelectedDate="{Binding BirthDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Height="24" Width="102"/>
+            <Label Content="Experience:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="5" VerticalAlignment="Center" Height="26" Width="69"/>
+            <TextBox x:Name="experienceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="5" Text="{Binding Experience, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Salary Month:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="6" VerticalAlignment="Center" Height="26" Width="83"/>
+            <TextBox x:Name="salaryMonthTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="6" Text="{Binding SalaryMonth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Is Hour:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="7" VerticalAlignment="Center" Height="26" Width="51"/>
+            <CheckBox x:Name="isHourCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="4,8,0,8" Grid.Row="7" VerticalAlignment="Center" Height="16" Width="20"/>
+            <Label Content="Pay Hour:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="8" VerticalAlignment="Center" Height="26" Width="61"/>
+            <TextBox x:Name="payHourTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="8" Text="{Binding PayHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Phone:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="9" VerticalAlignment="Center" Height="26" Width="46"/>
+            <TextBox x:Name="phoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="9" Text="{Binding Phone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="minAgeTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="7,5,0,3" Text="{Binding MinAge, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Max Age:" HorizontalAlignment="Left" Margin="0,3" Grid.Row="1" VerticalAlignment="Center" Height="26" Width="59" Grid.Column="2"/>
+            <TextBox x:Name="maxAgeTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="10,5,0,3" Grid.Row="1" Text="{Binding MaxAge, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Max Child:" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="2" VerticalAlignment="Center" Height="26" Width="65" Grid.Column="2"/>
+            <TextBox x:Name="maxChildTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="7,8,0,0" Grid.Row="2" Text="{Binding MaxChild, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Floor:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="13" VerticalAlignment="Center" Height="26" Width="40"/>
+            <TextBox x:Name="floorTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="13" Text="{Binding Floor, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Elevator:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="14" VerticalAlignment="Center" Height="26" Width="55"/>
+            <CheckBox x:Name="elevatorCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Elevator, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="4,8,0,8" Grid.Row="14" VerticalAlignment="Center" Height="16" Width="20"/>
+            <Label Content="Day Off Ed:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="15" VerticalAlignment="Center" Height="26" Width="69"/>
+            <CheckBox x:Name="dayOff_EdCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding DayOff_Ed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="4,8,0,8" Grid.Row="15" VerticalAlignment="Center" Height="16" Width="20"/>
+            <Label Content="Playground:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="16" VerticalAlignment="Center" Height="26" Width="73"/>
+            <CheckBox x:Name="playgroundCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Playground, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="4,8,0,8" Grid.Row="16" VerticalAlignment="Center" Height="16" Width="20"/>
+            <Label Content="Religious:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="17" VerticalAlignment="Center" Height="26" Width="60"/>
+            <CheckBox x:Name="religiousCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Religious, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="4,8,0,8" Grid.Row="17" VerticalAlignment="Center" Height="16" Width="20"/>
+            <Label Content="Lunch:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="18" VerticalAlignment="Center" Height="26" Width="44"/>
+            <CheckBox x:Name="lunchCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding Lunch, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="4,8,0,8" Grid.Row="18" VerticalAlignment="Center" Height="16" Width="20"/>
+            <Label Content="Min Age:" HorizontalAlignment="Left" Margin="10,5,0,1" VerticalAlignment="Center" Height="26" Width="57" Grid.Column="2"/>
         </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="36" Margin="48,30,0,0" Grid.Row="2" VerticalAlignment="Top" Width="138" Click="Button_Click"/>
+        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Height="36" Margin="48,30,0,0" Grid.Row="2" VerticalAlignment="Top" Width="138" Click="addButton_Click"/>
     </Grid>
 </Window>

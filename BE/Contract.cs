@@ -7,7 +7,7 @@ namespace BE
     public class Contract
     {
         #region fields
-        private static int counter = 0;
+        private static int counter = 1;
         private readonly int num;
         private readonly string idNanny;
         private readonly string idChild;
@@ -66,6 +66,8 @@ namespace BE
                 dateEnd = value;
             }
         }
+
+        public static int Counter { get => counter; set => counter = value; }
         #endregion
 
         public override string ToString()

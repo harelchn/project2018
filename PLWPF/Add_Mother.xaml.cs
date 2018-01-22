@@ -39,10 +39,19 @@ namespace PLWPF
             // motherViewSource.Source = [generic data source]
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            bl.Add_Mother(mother);
-            Window.Visibility = Visibility.Visible;
+            try
+            {
+                bl.Add_Mother(mother);
+                mother = new Mother();
+                Window.Visibility = Visibility.Hidden;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
     }
 }

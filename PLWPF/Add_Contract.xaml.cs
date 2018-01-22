@@ -39,10 +39,23 @@ namespace PLWPF
             // contractViewSource.Source = [generic data source]
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            bl.Add_Contract(contract);
-            Window.Visibility = Visibility.Hidden;
+            try
+            {
+                bl.Add_Contract(contract);
+                contract = new Contract();
+                Window.Visibility = Visibility.Hidden;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Window_Close(object sender, EventArgs e)
+        {
+            Contract.Counter--;
         }
     }
 }

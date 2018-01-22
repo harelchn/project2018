@@ -38,10 +38,18 @@ namespace PLWPF
             // childViewSource.Source = [generic data source]
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            bl.Add_Child(child);
-            Window.Visibility = Visibility.Hidden;
+            try
+            {
+                bl.Add_Child(child);
+                Window.Visibility = Visibility.Hidden;
+                child = new Child();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -39,10 +39,18 @@ namespace PLWPF
             // nannyViewSource.Source = [generic data source]
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            bl.Add_Nanny(nanny);
-            Window.Visibility = Visibility.Hidden;
+            try
+            {
+                bl.Add_Nanny(nanny);
+                Window.Visibility = Visibility.Hidden;
+                nanny = new Nanny();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
