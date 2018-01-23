@@ -23,6 +23,17 @@ namespace PLWPF
     public partial class MainWindow : Window
     {
         IBL bl;
+
+        Add_Child add_Child;
+        Add_Contract add_Contract;
+        Add_Mother add_Mother;
+        Add_Nanny add_Nanny;
+
+        Remove_Child remove_Child = new Remove_Child();
+        Remove_Contract remove_Contract = new Remove_Contract();
+        Remove_Mother remove_Mother = new Remove_Mother();
+        Remove_Nanny remove_Nanny = new Remove_Nanny();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -105,26 +116,46 @@ namespace PLWPF
 
         private void nanny_addButton_Click(object sender, RoutedEventArgs e)
         {
-            Window w = new Add_Nanny();
-            w.Show();
+            add_Nanny = new Add_Nanny();
+            add_Nanny.Show();
         }
 
         private void mother_addButton_Click(object sender, RoutedEventArgs e)
         {
-            Window w = new Add_Mother();
-            w.Show();
+            add_Mother = new Add_Mother();
+            add_Mother.Show();
         }
 
         private void child_addButton_Click(object sender, RoutedEventArgs e)
         {
-            Window w = new Add_Child();
-            w.Show();
+            add_Child = new Add_Child();
+            add_Child.Show();
         }
 
         private void contract_addButton_Click(object sender, RoutedEventArgs e)
         {
-            Window w = new Add_Contract();
-            w.Show();
+            add_Contract = new Add_Contract();
+            add_Contract.Show();
+        }
+
+        private void nanny_removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            remove_Nanny.Show();
+        }
+
+        private void mother_removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            remove_Mother.MyShow();
+        }
+
+        private void child_removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            remove_Child.Show();
+        }
+
+        private void contract_removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            remove_Contract.Show();
         }
     }
 }

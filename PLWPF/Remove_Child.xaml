@@ -1,0 +1,32 @@
+﻿<Window x:Class="PLWPF.Remove_Child"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title="Remove_Child" Height="245.865" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="127*"/>
+            <RowDefinition Height="45*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="choose id:" HorizontalAlignment="Center" Margin="0,10" VerticalAlignment="Top"/>
+            <Label Content="forgot the id?" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" FontSize="10"/>
+            <Label Content="name:" HorizontalAlignment="Left" Margin="0,30" VerticalAlignment="Top" Grid.Column="1" FontSize="10"/>
+            <ComboBox HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="120"/>
+            <ComboBox HorizontalAlignment="Right" Margin="0,35,30,0" VerticalAlignment="Top" Width="72" Grid.Column="1" Height="15"/>
+            <Button Content="search" Grid.Column="1" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" FontSize="6" Width="50" Height="12"/>
+            <Label Content="search your child" Grid.Column="1" HorizontalAlignment="Center" Margin="0,15" VerticalAlignment="Top" FontSize="7"/>
+        </Grid>
+        <Label Content="Remove child" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize='30' Height="43" Margin="52,0" Width="188"/>
+        <Button Content="Remove" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Width="140" Grid.Row="2" Height="30" Margin="76,8,76,7"/>
+
+    </Grid>
+</Window>

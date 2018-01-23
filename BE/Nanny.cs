@@ -277,9 +277,8 @@ namespace BE
 
         public int Age()
         {
-            if (BirthDate.Month > DateTime.Now.Month)
-                return DateTime.Now.Year - BirthDate.Year;
-            if (BirthDate.Month == DateTime.Now.Month && BirthDate.Day >= DateTime.Now.Day)
+            if (BirthDate.Month < DateTime.Now.Month
+                || BirthDate.Month == DateTime.Now.Month && BirthDate.Day <= DateTime.Now.Day)
                 return DateTime.Now.Year - BirthDate.Year;
             return DateTime.Now.Year - BirthDate.Year - 1;
         }
