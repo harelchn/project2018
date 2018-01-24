@@ -21,7 +21,7 @@
             </Grid.ColumnDefinitions>
             <Button Content="Remove" HorizontalAlignment="Center" Margin="104,0,85,36" VerticalAlignment="Bottom" FontSize="17" Width="100" Height="27" Click="Button_Click"/>
             <Label Content="Contract number:" HorizontalAlignment="Center" Margin="100,10,87,0" VerticalAlignment="Top" Height="26" Width="102"/>
-            <ComboBox HorizontalAlignment="Center" Margin="140,35,121,0" VerticalAlignment="Top" Height="22" Width="28"/>
+            <ComboBox x:Name="numComboBox" HorizontalAlignment="Center" Margin="140,35,121,0" VerticalAlignment="Top" Height="22" Width="28"/>
         </Grid>
         <Label Content="Remove contract" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize='30'/>
 

@@ -13,9 +13,9 @@ namespace BE
         private string phone;
         private string addressMother;
         private string addressNanny;
-        private bool[] nannyDay = new bool[6];
+        private bool[] nannyDay = new bool[6] { false, false, false, false, false, false };
         private TimeSpan[,] nannyTime = new TimeSpan[6, 2];
-        private bool isHour;
+        private bool isHour = false;
         #endregion 
         public Mother() { }
 
@@ -39,7 +39,10 @@ namespace BE
             set
             {
                 if (id == null)
+                {
                     Check_ID(value);
+                    id = value;
+                }
             }
         }
 
@@ -161,7 +164,6 @@ namespace BE
                 if (t < '0' || t > '9')
                     throw new Exception("The ID is invalid!");
             }
-            this.id = id;
         }
 
         private void check_Address(string value)

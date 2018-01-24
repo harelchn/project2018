@@ -7,10 +7,10 @@ namespace BE
     public class Contract
     {
         #region fields
-        private static int counter = 1;
+        private static int counter = 0;
         private readonly int num;
-        private readonly string idNanny;
-        private readonly string idChild;
+        private string idNanny;
+        private string idChild;
         private bool isMeet;
         private bool isSigned;
         private double payHour;
@@ -25,9 +25,9 @@ namespace BE
         {
             num = counter++;
             CheckId(idN);
-            this.idNanny = idN;
+            this.IdNanny = idN;
             CheckId(idC);
-            this.idChild = idC;
+            this.IdChild = idC;
             IsMeet = isM;
             IsSigned = isS;
             PayHour = payH;
@@ -39,16 +39,38 @@ namespace BE
 
         public Contract()
         {
-            num = counter++;
+            num = ++counter;
         }
         #endregion
 
         #region properties
         public int Num => num;
 
-        public string IdNanny => idNanny;
-
-        public string IdChild => idChild;
+        public static int Counter { get => counter; set => counter = value; }
+        public string IdNanny
+        {
+            get => idNanny;
+            set
+            {
+                if (idNanny == null)
+                {
+                    CheckId(value);
+                    idNanny = value;
+                }
+            }
+        }
+        public string IdChild
+        {
+            get => idChild;
+            set
+            {
+                if (idChild == null)
+                {
+                    CheckId(value);
+                    idChild = value;
+                }
+            }
+        }
 
         public bool IsMeet { get => isMeet; set => isMeet = value; }
         public bool IsSigned { get => isSigned; set => isSigned = value; }
@@ -67,7 +89,6 @@ namespace BE
             }
         }
 
-        public static int Counter { get => counter; set => counter = value; }
         #endregion
 
         public override string ToString()
@@ -119,6 +140,5 @@ namespace BE
                     throw new Exception("ID is invalid!");
             }
         }
-
     }
 }

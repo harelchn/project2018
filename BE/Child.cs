@@ -43,7 +43,18 @@ namespace BE
             }
         }
 
-        public string IdM => idM;
+        public string IdM
+        {
+            get => idM;
+            set
+            {
+                if (idM == null)
+                {
+                    CheckId(value);
+                    idM = value;
+                }
+            }
+        }
 
         public string Name
         {

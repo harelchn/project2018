@@ -21,13 +21,14 @@ namespace PLWPF
     /// </summary>
     public partial class Remove_Contract : Window
     {
-        IBL bl;
-        Contract contract = new Contract();
+        private IBL bl;
+        private Contract contract = new Contract();
         public Remove_Contract()
         {
             InitializeComponent();
             bl = FactoryBL.GetBL();
             Grid.DataContext = contract;
+            Contract.Counter--;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -41,12 +42,23 @@ namespace PLWPF
             try
             {
                 bl.Remove_Contract(contract);
+                numComboBox.Items.Remove(contract.Num);
                 contract = new Contract();
-                Window.Visibility = Visibility.Hidden;
+                Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        public void MyShow()
+        {
+            Show();
+            foreach (var con in bl.GetContract())
+            {
+                ComboBoxItem newItem = new ComboBoxItem();
+                newItem.Content = con.Num;
+                numComboBox.Items.Add(newItem);
             }
         }
     }

@@ -10,7 +10,7 @@
     <Window.Resources>
         <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Contract}, CreateList=True}"/>
     </Window.Resources>
-    <Grid x:Name="Grid" DataContext="{StaticResource contractViewSource}" Margin="0,10,0,0">
+    <Grid x:Name="grid" DataContext="{StaticResource contractViewSource}" Margin="0,10,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="56*"/>
             <RowDefinition Height="286*"/>
@@ -34,9 +34,9 @@
             <Label Content="Num:"  HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center"/>
             <Label x:Name="numLabel" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Content="{Binding Num, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Id Child:"  HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="idChildTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding IdChild, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+            <ComboBox x:Name="idChildComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding IdChild ,Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" SelectionChanged="IdChild_SelectionChanged" TextInput="IdChild_TextInput"/>
             <Label Content="Id Nanny:"  HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox x:Name="idNannyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding IdNanny, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+            <ComboBox x:Name="idNannyComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding IdNanny ,Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" SelectionChanged="IdNanny_SelectionChanged" TextInput="IdNanny_TextInput"/>
             <Label Content="Date Begin:"  HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
             <DatePicker x:Name="dateBeginDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="3" SelectedDate="{Binding DateBegin, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
             <Label Content="Date End:"  HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
@@ -46,8 +46,11 @@
             <Label Content="Is Signed:"  HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
             <CheckBox x:Name="isSignedCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsSigned, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
             <Label Content="Salary:"  HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
-            <Label x:Name="salaryTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Content="{Binding Salary, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label x:Name="salaryLabel" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7"
+                VerticalAlignment="Center" Width="120"/>
+            <!--Content="{Binding Salary, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"-->
         </Grid>
-        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Height="33" Margin="44,20,0,0" Grid.Row="2" VerticalAlignment="Top" Width="136" Click="addButton_Click" RenderTransformOrigin="0.324,1.424"/>
+        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Click="AddButton_Click" FontSize="30" Width="140"/>
+        <Label Content="Add contract" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
     </Grid>
 </Window>

@@ -37,29 +37,31 @@ namespace PLWPF
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (nanny.ID != null)
+                nanny = bl.GetNanny().Find(x => x.ID == nanny.ID);
+            if (nanny.F_name != null)
+                if (nanny.L_name != null)
+                    nanny = bl.GetNanny().Find(x => x.F_name == nanny.F_name && x.L_name == nanny.L_name);
             try
             {
                 bl.Remove_Nanny(nanny);
+                idComboBox.Items.Remove(nanny.ID);
                 nanny = new Nanny();
-                Window.Visibility = Visibility.Hidden;
+                Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        public void MyShow()
         {
-            try
+            Show();
+            foreach (var nan in bl.GetNanny())
             {
-                bl.Remove_Nanny(nanny);
-                nanny = new Nanny();
-                Window.Visibility = Visibility.Hidden;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                ComboBoxItem newItem = new ComboBoxItem();
+                newItem.Content = nan.ID;
+                idComboBox.Items.Add(newItem);
             }
         }
     }

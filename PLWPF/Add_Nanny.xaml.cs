@@ -41,6 +41,37 @@ namespace PLWPF
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            if (nanny.WorkDay[0])
+            {
+                nanny.WorkTime[0, 0] = TimeSpan.Parse(TP01.Text);
+                nanny.WorkTime[0, 1] = TimeSpan.Parse(TP11.Text);
+            }
+            if (nanny.WorkDay[1])
+            {
+                nanny.WorkTime[1, 0] = TimeSpan.Parse(TP02.Text);
+                nanny.WorkTime[1, 1] = TimeSpan.Parse(TP12.Text);
+            }
+            if (nanny.WorkDay[2])
+            {
+                nanny.WorkTime[2, 0] = TimeSpan.Parse(TP03.Text);
+                nanny.WorkTime[2, 1] = TimeSpan.Parse(TP13.Text);
+            }
+            if (nanny.WorkDay[3])
+            {
+                nanny.WorkTime[3, 0] = TimeSpan.Parse(TP04.Text);
+                nanny.WorkTime[3, 1] = TimeSpan.Parse(TP14.Text);
+            }
+            if (nanny.WorkDay[4])
+            {
+                nanny.WorkTime[4, 0] = TimeSpan.Parse(TP05.Text);
+                nanny.WorkTime[4, 1] = TimeSpan.Parse(TP15.Text);
+            }
+            if (nanny.WorkDay[5])
+            {
+                nanny.WorkTime[5, 0] = TimeSpan.Parse(TP06.Text);
+                nanny.WorkTime[5, 1] = TimeSpan.Parse(TP16.Text);
+            }
+
             try
             {
                 bl.Add_Nanny(nanny);

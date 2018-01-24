@@ -4,13 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLWPF"
-        xmlns:BE="clr-namespace:BE;assembly=BE" xmlns:extToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended" x:Name="Window" x:Class="PLWPF.Add_Nanny"
+        xmlns:BE="clr-namespace:BE;assembly=BE"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        x:Name="Window"
+        x:Class="PLWPF.Add_Nanny"
         mc:Ignorable="d"
         Title="Add_Nanny" Height="719" Width="614" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="nannyViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Nanny}, CreateList=True}"/>
     </Window.Resources>
-    <Grid x:Name="Grid" DataContext="{StaticResource nannyViewSource}" Margin="0,0,2,0">
+    <Grid x:Name="Grid" DataContext="{StaticResource nannyViewSource}">
         <Grid.RowDefinitions>
             <RowDefinition Height="112*"/>
             <RowDefinition Height="479*"/>
@@ -43,7 +46,7 @@
             <Label Content="Last Name:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center" Height="26" Width="69"/>
             <TextBox x:Name="l_nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="1" Text="{Binding L_name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Id:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="2" VerticalAlignment="Center" Height="26" Width="23"/>
-            <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="2" Text="{Binding ID, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+            <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="2" Text="{Binding ID, Mode=TwoWay}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Address:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="3" VerticalAlignment="Center" Height="26" Width="55"/>
             <TextBox x:Name="addressTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="4,4,0,4" Grid.Row="3" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Birth Date:" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="4" VerticalAlignment="Center" Height="26" Width="66"/>
@@ -90,24 +93,25 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <extToolkit:TimePicker Grid.Row="1"/>
-                <extToolkit:TimePicker Grid.Row="2" Grid.Column="5"/>
-                <extToolkit:TimePicker Grid.Row="2" Grid.Column="4"/>
-                <extToolkit:TimePicker Grid.Row="2" Grid.Column="3"/>
-                <extToolkit:TimePicker Grid.Row="2" Grid.Column="2"/>
-                <extToolkit:TimePicker Grid.Row="2" Grid.Column="1"/>
-                <extToolkit:TimePicker Grid.Row="2"/>
-                <extToolkit:TimePicker Grid.Row="1" Grid.Column="5"/>
-                <extToolkit:TimePicker Grid.Row="1" Grid.Column="4"/>
-                <extToolkit:TimePicker Grid.Row="1" Grid.Column="3"/>
-                <extToolkit:TimePicker Grid.Row="1" Grid.Column="2"/>
-                <extToolkit:TimePicker Grid.Row="1" Grid.Column="1"/>
-                <CheckBox Content="friday" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding nannyDay[5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                <CheckBox Content="thursday" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding nannyDay[4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                <CheckBox Content="wednesday" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding nannyDay[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                <CheckBox Content="tuesday" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding nannyDay[2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                <CheckBox Content="monday" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding nannyDay[1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                <CheckBox Content="sunday" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding nannyDay[0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                <xctk:TimePicker x:Name="TP01" Grid.Row="1" IsEnabled="{Binding IsChecked, ElementName=sundayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP16" Grid.Row="2" Grid.Column="5" IsEnabled="{Binding IsChecked, ElementName=fridayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP15" Grid.Row="2" Grid.Column="4" IsEnabled="{Binding IsChecked, ElementName=thursdayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP14" Grid.Row="2" Grid.Column="3" IsEnabled="{Binding IsChecked, ElementName=wednesdayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP13" Grid.Row="2" Grid.Column="2" IsEnabled="{Binding IsChecked, ElementName=tuesdayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP12" Grid.Row="2" Grid.Column="1" IsEnabled="{Binding IsChecked, ElementName=mondayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP11" Grid.Row="2" IsEnabled="{Binding IsChecked, ElementName=sundayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP06" Grid.Row="1" Grid.Column="5" IsEnabled="{Binding IsChecked, ElementName=fridayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP05" Grid.Row="1" Grid.Column="4" IsEnabled="{Binding IsChecked, ElementName=thursdayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP04" Grid.Row="1" Grid.Column="3" IsEnabled="{Binding IsChecked, ElementName=wednesdayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP03" Grid.Row="1" Grid.Column="2" IsEnabled="{Binding IsChecked, ElementName=tuesdayCheckBox}"/>
+                <xctk:TimePicker x:Name="TP02" Grid.Row="1" Grid.Column="1" IsEnabled="{Binding IsChecked, ElementName=mondayCheckBox}"/>
+
+                <CheckBox x:Name="fridayCheckBox" Content="friday" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WorkDay[5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                <CheckBox x:Name="thursdayCheckBox" Content="thursday" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WorkDay[4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                <CheckBox x:Name="wednesdayCheckBox" Content="wednesday" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WorkDay[3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                <CheckBox x:Name="tuesdayCheckBox" Content="tuesday" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WorkDay[2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                <CheckBox x:Name="mondayCheckBox" Content="monday" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WorkDay[1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                <CheckBox x:Name="sundayCheckBox" Content="sunday" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding WorkDay[0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             </Grid>
             <Label Content="Work days:" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
             <Label Content="Begin time:" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>

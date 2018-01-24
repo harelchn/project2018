@@ -30,7 +30,7 @@ namespace PLWPF
         Add_Nanny add_Nanny;
 
         Remove_Child remove_Child = new Remove_Child();
-        Remove_Contract remove_Contract = new Remove_Contract();
+        Remove_Contract remove_Contract;
         Remove_Mother remove_Mother = new Remove_Mother();
         Remove_Nanny remove_Nanny = new Remove_Nanny();
 
@@ -129,18 +129,18 @@ namespace PLWPF
         private void child_addButton_Click(object sender, RoutedEventArgs e)
         {
             add_Child = new Add_Child();
-            add_Child.Show();
+            add_Child.MyShow();
         }
 
         private void contract_addButton_Click(object sender, RoutedEventArgs e)
         {
             add_Contract = new Add_Contract();
-            add_Contract.Show();
+            add_Contract.MyShow();
         }
 
         private void nanny_removeButton_Click(object sender, RoutedEventArgs e)
         {
-            remove_Nanny.Show();
+            remove_Nanny.MyShow();
         }
 
         private void mother_removeButton_Click(object sender, RoutedEventArgs e)
@@ -150,12 +150,13 @@ namespace PLWPF
 
         private void child_removeButton_Click(object sender, RoutedEventArgs e)
         {
-            remove_Child.Show();
+            remove_Child.MyShow();
         }
 
         private void contract_removeButton_Click(object sender, RoutedEventArgs e)
         {
-            remove_Contract.Show();
+            remove_Contract = new Remove_Contract();
+            remove_Contract.MyShow();
         }
     }
 }

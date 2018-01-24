@@ -5,40 +5,34 @@ namespace BE
     public class Nanny
     {
         #region fields
-        private readonly string id;
+        private string id;
         private string l_name;
         private string f_name;
         private DateTime birthDate;
         private string phone;
         private string address;
-        private bool elevator;
+        private bool elevator = false;
         private int floor;
         private int experience;
         private int maxChild;
         private int minAge;
         private int maxAge;
-        private bool isHour;
+        private bool isHour = false;
         private double payHour;
         private double salaryMonth;
-        private bool[] workDay = new bool[6];
+        private bool[] workDay = new bool[6] { false,false,false,false,false,false };
         private TimeSpan[,] workTime = new TimeSpan[6, 2];
-        private bool dayOff_Ed;
+        private bool dayOff_Ed = false;
         private string[] recomm;
-        private bool religious;
-        private bool lunch;
-        private bool playground;
+        private bool religious = false;
+        private bool lunch = false;
+        private bool playground = false;
         #endregion
         public Nanny() { }
 
         public Nanny(string id, string l, string f, DateTime bD, string ph, string ad, bool el, int fl, int ex, int mC, int miA, int maA, bool isH, double payH, double sa, bool[] workD, TimeSpan[,] workT, bool dayO_Ed, string[] re, bool rel = false, bool lun=true, bool play=false)
         {
-            char t;
-            for (int i = 0; i < id.Length; i++)
-            {
-                t = id.ToCharArray()[i];
-                if (t < '0' || t > '9')
-                    throw new Exception("This ID is invalid!");
-            }
+            Check_ID(id);
             this.id = id;
             L_name = l;
             F_name = f;
@@ -64,7 +58,15 @@ namespace BE
         }
 
         #region properties
-        public string ID => id;
+        public string ID
+        {
+            get => id;
+            set
+            {
+                if (id == null)
+                    Check_ID(value);
+            }
+        }
 
         public string L_name
         {
@@ -296,6 +298,18 @@ namespace BE
             }
             if (counter != 2)
                 throw new Exception("The address is invalid!");
+        }
+
+        private void Check_ID(string id)
+        {
+            char t;
+            for (int i = 0; i < id.Length; i++)
+            {
+                t = id.ToCharArray()[i];
+                if (t < '0' || t > '9')
+                    throw new Exception("The ID is invalid!");
+            }
+            this.id = id;
         }
 
     }

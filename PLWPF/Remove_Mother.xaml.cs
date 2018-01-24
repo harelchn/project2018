@@ -38,7 +38,11 @@ namespace PLWPF
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mother = bl.GetMother().Find(x => x.ID == mother.ID);
+            if(mother.ID != null)
+                mother = bl.GetMother().Find(x => x.ID == mother.ID);
+            if (mother.F_name != null)
+                if (mother.L_name != null)
+                    mother = bl.GetMother().Find(x => x.F_name == mother.F_name && x.L_name == mother.L_name);
             try
             {
                 bl.Remove_Mother(mother);

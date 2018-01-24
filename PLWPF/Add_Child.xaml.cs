@@ -42,13 +42,26 @@ namespace PLWPF
         {
             try
             {
+                if (specialNeedsTextBox.Text != "")
+                    child.IsSpecial = true;
+
                 bl.Add_Child(child);
-                Window.Visibility = Visibility.Hidden;
+                Close();
                 child = new Child();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        public void MyShow()
+        {
+            Show();
+            foreach (Mother mom in bl.GetMother())
+            {
+                ComboBoxItem newItem = new ComboBoxItem();
+                newItem.Content = mom.ID;
+                idMComboBox.Items.Add(newItem);
             }
         }
     }

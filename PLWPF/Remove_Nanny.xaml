@@ -20,13 +20,12 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Remove" HorizontalAlignment="Center" Margin="0,10" VerticalAlignment="Bottom" FontSize="17" Width="100" Click="Button_Click_1"/>
-            <Button Content="Remove" HorizontalAlignment="Center" Margin="0,10" VerticalAlignment="Bottom" FontSize="17" Width="100" Grid.Column="1" Click="Button_Click"/>
+            <Button Content="Remove" HorizontalAlignment="Center" Margin="94,0,95,10" VerticalAlignment="Bottom" FontSize="17" Width="100" Click="Button_Click" Grid.ColumnSpan="2"/>
             <Label Content="according to id:" HorizontalAlignment="Center" Margin="0,10" VerticalAlignment="Top"/>
             <Label Content="forgot the id?" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" FontSize="10"/>
             <Label Content="Last name:" HorizontalAlignment="Left" Margin="0,50" VerticalAlignment="Top" Grid.Column="1" FontSize="9"/>
             <Label Content="First name:" HorizontalAlignment="Left" Margin="0,30" VerticalAlignment="Top" Grid.Column="1" FontSize="9"/>
-            <ComboBox HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="120"/>
+            <ComboBox x:Name="idComboBox" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="120"/>
             <ComboBox HorizontalAlignment="Right" Margin="0,55,15,0" VerticalAlignment="Top" Width="72" Grid.Column="1" Height="15"/>
             <ComboBox HorizontalAlignment="Right" Margin="0,35,15,0" VerticalAlignment="Top" Width="72" Grid.Column="1" Height="15"/>
             <Button Content="search" Grid.Column="1" HorizontalAlignment="Center" Margin="0,75" VerticalAlignment="Top" FontSize="6" Width="50" Height="12"/>
