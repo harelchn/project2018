@@ -7,33 +7,81 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="nannyButton" Content="Nanny" Click="nannyButton_Click"/>
-        <Button x:Name="motherButon" Content="Mother" Grid.Column="1" Click="motherButon_Click"/>
-        <Button x:Name="childButton" Content="Child" Grid.Column="2" Click="childButton_Click"/>
-        <Button x:Name="contractButton" Content="Contract" Grid.Column="3" Click="contractButton_Click"/>
-        <Button x:Name="nanny_addButton" Content="add" Grid.Row="1" Click="nanny_addButton_Click"/>
-        <Button x:Name="mother_addButton" Content="add" Grid.Column="1" Grid.Row="1" Click="mother_addButton_Click"/>
-        <Button x:Name="child_addButton" Content="add" Grid.Column="2" Grid.Row="1" Click="child_addButton_Click"/>
-        <Button x:Name="contract_addButton" Content="add" Grid.Column="3" Grid.Row="1" Click="contract_addButton_Click"/>
-        <Button x:Name="nanny_removeButton" Content="remove" Grid.Row="2" Click="nanny_removeButton_Click"/>
-        <Button x:Name="mother_removeButton" Content="remove" Grid.Column="1" Grid.Row="2" Click="mother_removeButton_Click"/>
-        <Button x:Name="child_removeButton" Content="remove" Grid.Row="2" Grid.Column="2" Click="child_removeButton_Click"/>
-        <Button x:Name="contract_removeButton" Content="remove" Grid.Row="2" Grid.Column="3" Click="contract_removeButton_Click"/>
-        <Button x:Name="nanny_updateButton" Content="update" Grid.Row="3"/>
-        <Button x:Name="mother_updateButton" Content="update" Grid.Column="1" Grid.Row="3"/>
-        <Button x:Name="child_updateButton" Content="update" Grid.Column="2" Grid.Row="3"/>
-        <Button x:Name="contract_updateButton" Content="update" Grid.Row="3" Grid.Column="3"/>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush x:Name="nanny_image" ImageSource="nanny.jpg" Stretch="Fill"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="nannyButton" Content="Nanny" Click="nannyButton_Click"/>
+            <Button x:Name="nanny_addButton" Content="add" Grid.Row="1" Click="nanny_addButton_Click"/>
+            <Button x:Name="nanny_removeButton" Content="remove" Grid.Row="2" Click="nanny_removeButton_Click"/>
+            <Button x:Name="nanny_updateButton" Content="update" Grid.Row="3" Click="nanny_updateButton_Click"/>
+            <Button x:Name="nanny_listButton" Content="list" Grid.Row="4"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="motherButon" Content="Mother" Click="motherButon_Click"/>
+            <Button x:Name="mother_addButton" Content="add" Grid.Row="1" Click="mother_addButton_Click"/>
+            <Button x:Name="mother_removeButton" Content="remove" Grid.Row="2" Click="mother_removeButton_Click"/>
+            <Button x:Name="mother_updateButton" Content="update" Grid.Row="3" Click="mother_updateButton_Click_1"/>
+            <Button x:Name="mother_listButton" Content="list" Grid.Row="4"/>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="childButton" Content="Child" Click="childButton_Click"/>
+            <Button x:Name="child_addButton" Content="add" Grid.Row="1" Click="child_addButton_Click"/>
+            <Button x:Name="child_removeButton" Content="remove" Grid.Row="2" Click="child_removeButton_Click"/>
+            <Button x:Name="child_updateButton" Content="update" Grid.Row="3" Click="child_updateButton_Click"/>
+            <Button x:Name="child_listButton" Content="list" Grid.Row="4"/>
+        </Grid>
+        <Grid Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="contractButton" Content="Contract" Click="contractButton_Click"/>
+            <Button x:Name="contract_addButton" Content="add" Grid.Row="1" Click="contract_addButton_Click"/>
+            <Button x:Name="contract_removeButton" Content="remove" Grid.Row="2" Click="contract_removeButton_Click"/>
+            <Button x:Name="contract_updateButton" Content="update" Grid.Row="3" Click="contract_updateButton_Click"/>
+            <Button x:Name="contract_listButton" Content="list" Grid.Row="4"/>
+        </Grid>
+        <Image x:Name="child_image" Grid.Row="1" Source="images.png" Stretch="Fill" Grid.RowSpan="6" Grid.Column="2" d:IsHidden="True" />
+        <Image x:Name="mother_image" Grid.Row="1" Grid.RowSpan="6" Source="mother.png" Stretch="Fill" Grid.Column="1" d:IsHidden="True"/>
+        <Image x:Name="contract_image" Grid.Column="3" Grid.Row="1" Source="contract.gif" Stretch="Fill" Grid.RowSpan="6" d:IsHidden="True"/>
     </Grid>
 </Window>

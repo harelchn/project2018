@@ -28,7 +28,10 @@ namespace PLWPF
             InitializeComponent();
 
             bl = FactoryBL.GetBL();
+            
             Grid.DataContext = nanny;
+            payHourLabel.Visibility = Visibility.Hidden;
+            payHourTextBox.Visibility = Visibility.Hidden;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -81,6 +84,20 @@ namespace PLWPF
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void IsHour_Click(object sender, RoutedEventArgs e)
+        {
+            if (payHourTextBox.Visibility == Visibility.Hidden)
+            {
+                payHourTextBox.Visibility = Visibility.Visible;
+                payHourLabel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                payHourTextBox.Visibility = Visibility.Hidden;
+                payHourLabel.Visibility = Visibility.Hidden;
             }
         }
     }

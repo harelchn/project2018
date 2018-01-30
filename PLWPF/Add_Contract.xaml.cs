@@ -58,15 +58,11 @@ namespace PLWPF
             Show();
             foreach (Child ch in bl.GetChild())
             {
-                ComboBoxItem newItem = new ComboBoxItem();
-                newItem.Content = ch.IdC;
-                idChildComboBox.Items.Add(newItem);
+                idChildComboBox.Items.Add(ch.IdC);
             }
             foreach (Nanny nan in bl.GetNanny())
             {
-                ComboBoxItem newItem = new ComboBoxItem();
-                newItem.Content = nan.ID;
-                idNannyComboBox.Items.Add(newItem);
+                idNannyComboBox.Items.Add(nan.ID);
             }
         }
 
@@ -77,11 +73,13 @@ namespace PLWPF
 
         private void CalculateSalary()
         {
-            if (contract.IdChild != null && contract.IdNanny != null)
+            string idChild = (string)(idChildComboBox.SelectedItem);
+            string idNanny = (string)(idNannyComboBox.SelectedItem);
+            if (idChild != null && idNanny != null)
             {
                 int counter = 1;
-                Child child = bl.GetChild().Find(x => x.IdC == contract.IdChild);
-                Nanny nanny = bl.GetNanny().Find(x => x.ID == contract.IdNanny);
+                Child child = bl.GetChild().Find(x => x.IdC == idChild);
+                Nanny nanny = bl.GetNanny().Find(x => x.ID == idNanny);
                 Mother mother = bl.GetMother().Find(x => x.ID == child.IdM);
 
                 contract.IsHour = (mother.IsHour && nanny.IsHour);

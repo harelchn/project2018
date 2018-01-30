@@ -13,6 +13,7 @@ namespace BL
 {
     public class BL_imp : IBL
     {
+        static Random r = new Random();
         #region fields
         private Dal_imp dal = new Dal_imp();
         public delegate bool ConCond (Contract c);
@@ -282,6 +283,21 @@ namespace BL
                 degree[t].RemoveAt(0);
             }
             return nans;
+        }
+
+        public void InIt()
+        {
+            string[] Names = new string[10] { "Aharon", "Boaz", "Gilad", "Dror", "Eliahu", "Kevin", "Lior", "Matitiahu", "Nave", "Olivia" };
+            string[] feNames = new string[10] { "Avia", "Bracha", "Galia", "Dvora", "Shoshana", "Efrat", "Eshbal", "Shir", "Or", "Naomi" };
+            string[] lastNames = new string[10] { "Cohen", "Levi", "Israel", "Gavra", "Yosef", "Shvartz", "Dahari", "Nagar", "Tayri", "Kidron" };
+
+
+            for (int i = 0; i < 10; i++)
+                Add_Nanny(new Nanny((i + 1).ToString(), feNames[i], lastNames[i], new DateTime(2000, 1, 1)));
+            for (int i = 0; i < 10; i++)
+                Add_Mother(new Mother((i + 11).ToString(), lastNames[i], feNames[i]));
+            for (int i = 0; i < 10; i++)
+                Add_Child(new Child((i + 21).ToString(), (i + 11).ToString(), Names[i]));
         }
         #endregion
         #region gets

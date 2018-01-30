@@ -87,6 +87,18 @@
     <Compile Include="Remove_Nanny.xaml.cs">
       <DependentUpon>Remove_Nanny.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Update_Child.xaml.cs">
+      <DependentUpon>Update_Child.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Update_Contract.xaml.cs">
+      <DependentUpon>Update_Contract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Update_Mother.xaml.cs">
+      <DependentUpon>Update_Mother.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Update_Nanny.xaml.cs">
+      <DependentUpon>Update_Nanny.xaml</DependentUpon>
+    </Compile>
     <Page Include="Add_Child.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +155,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Update_Child.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Update_Contract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Update_Mother.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Update_Nanny.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -184,6 +212,21 @@
       <Project>{253e53c7-df05-4082-b2e6-232bed9bdf46}</Project>
       <Name>BL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="nanny.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mother.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="contract.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="contract.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

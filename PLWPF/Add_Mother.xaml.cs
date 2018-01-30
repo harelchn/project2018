@@ -83,12 +83,5 @@ namespace PLWPF
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void removeAll()
-        {
-           f_nameTextBox.Clear();
-
-        }
-
     }
 }

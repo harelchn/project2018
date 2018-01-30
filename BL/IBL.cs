@@ -30,5 +30,7 @@ namespace BL
         List<Mother> GetMother();
         List<Child> GetChild();
         List<Contract> GetContract();
+
+        void InIt();
     }
 }

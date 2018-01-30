@@ -1,26 +1,26 @@
-﻿<Window
+﻿<Window x:Class="PLWPF.Update_Mother"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLWPF"
-        xmlns:BE="clr-namespace:BE;assembly=BE" 
+           xmlns:BE="clr-namespace:BE;assembly=BE" 
     xmlns:extToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     x:Name="Window"
-    x:Class="PLWPF.Add_Mother"
         mc:Ignorable="d"
-        Title="Add_Mother" Height="593" Width="591" Loaded="Window_Loaded">
+        Title="Update_Mother" Height="640.603" Width="629.323">
     <Window.Resources>
         <CollectionViewSource x:Key="motherViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Mother}, CreateList=True}"/>
     </Window.Resources>
     <Grid x:Name="Grid" DataContext="{StaticResource motherViewSource}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="115*"/>
-            <RowDefinition Height="350*"/>
-            <RowDefinition Height="98*"/>
+            <RowDefinition Height="111*"/>
+            <RowDefinition Height="73*"/>
+            <RowDefinition Height="auto" MinHeight="333"/>
+            <RowDefinition Height="93*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="grid1" Grid.Row="1">
+        <Grid x:Name="grid1" Grid.Row="2" Margin="0,2,0,91" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -36,12 +36,10 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="First Name:" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="f_nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Text="{Binding F_name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Last Name:" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="l_nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding L_name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Id:" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding ID, Mode=TwoWay}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="First Name:" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" Grid.Row="1"/>
+            <TextBox x:Name="f_nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding F_name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Last Name:" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="l_nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding L_name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Address Mother:" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
             <TextBox x:Name="addressMotherTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding AddressMother, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Address Nanny:" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
@@ -51,10 +49,10 @@
             <Label Content="Is Hour:" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
             <CheckBox x:Name="isHourCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsHour, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
             <Label HorizontalAlignment="Left" Margin="3" Grid.Row="7" Content="Days to nanny:"/>
-            <Label HorizontalAlignment="Left" Margin="3,4,0,0" Grid.Row="8" Content="Begin time:" VerticalAlignment="Center" Height="29" Width="92"/>
-            <Label Content="End time:" HorizontalAlignment="Left" Height="28" Margin="10,44,0,-38" Grid.Row="8" VerticalAlignment="Top" Width="63"/>
+            <Label HorizontalAlignment="Left" Margin="3,18,0,-7" Grid.Row="8" Content="Begin time:"/>
+            <Label Content="End time:" Height="28" Margin="3,0,57,-49" Grid.Row="8" VerticalAlignment="Bottom"/>
 
-            <Grid Grid.Column="1" Grid.Row="7" Grid.RowSpan="2" Margin="0,0,0,-50" Width="478">
+            <Grid Grid.Column="1" Grid.Row="7" Grid.RowSpan="2" Margin="0,0,-9,-62">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -90,7 +88,9 @@
             </Grid>
 
         </Grid>
-        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Click="addButton_Click" FontSize="30" Width="150"/>
-        <Label Content="Add mother" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Height="77" Margin="154,19,153,19" Width="276"/>
+        <Button x:Name="updateButton" Content="Update" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Click="updateButton_Click" FontSize="30" Width="200" Height="44"/>
+        <Label Content="Update mother" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+        <Label Content="choose id to update:" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" Grid.Row="1" FontSize="20"/>
+        <ComboBox x:Name="idComboBox" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Center" Width="200" SelectionChanged="idComboBox_SelectionChanged" Grid.Row="1" Height="24" />
     </Grid>
 </Window>

@@ -30,28 +30,13 @@ namespace BE
         #endregion
         public Nanny() { }
 
-        public Nanny(string id, string l, string f, DateTime bD, string ph, string ad, bool el, int fl, int ex, int mC, int miA, int maA, bool isH, double payH, double sa, bool[] workD, TimeSpan[,] workT, bool dayO_Ed, string[] re, bool rel = false, bool lun=true, bool play=false)
+        public Nanny(string id, string f, string l, DateTime bD, bool rel = false, bool lun=true, bool play=false)
         {
             Check_ID(id);
             this.id = id;
             L_name = l;
             F_name = f;
             BirthDate = bD;
-            Phone = ph;
-            Address = ad;
-            Elevator = el;
-            Floor = fl;
-            Experience = ex;
-            MaxChild = mC;
-            MinAge = miA;
-            MaxAge = maA;
-            IsHour = isH;
-            PayHour = payH;
-            SalaryMonth = sa;
-            WorkDay = workD;
-            WorkTime = workT;
-            DayOff_Ed = dayO_Ed;
-            Recomm = re;
             Religious = rel;
             Lunch = lun;
             Playground = play;

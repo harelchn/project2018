@@ -29,17 +29,23 @@ namespace PLWPF
         Add_Mother add_Mother;
         Add_Nanny add_Nanny;
 
-        Remove_Child remove_Child = new Remove_Child();
+        Remove_Child remove_Child;
         Remove_Contract remove_Contract;
-        Remove_Mother remove_Mother = new Remove_Mother();
-        Remove_Nanny remove_Nanny = new Remove_Nanny();
+        Remove_Mother remove_Mother;
+        Remove_Nanny remove_Nanny;
 
+        Update_Child update_Child;
+        Update_Mother update_Mother;
+        Update_Nanny update_Nanny;
+        Update_Contract update_Contract;
         public MainWindow()
         {
             InitializeComponent();
 
             bl = FactoryBL.GetBL();
 
+            bl.InIt();
+            
             Hide();
         }
 
@@ -62,58 +68,96 @@ namespace PLWPF
             contract_updateButton.Visibility = Visibility.Hidden;
         }
 
+        #region menu buttons
         private void nannyButton_Click(object sender, RoutedEventArgs e)
         {
             if (nanny_addButton.Visibility == Visibility.Visible)
+            {
                 Hide();
+                mother_image.Visibility = Visibility.Visible;
+                contract_image.Visibility = Visibility.Visible;
+                child_image.Visibility = Visibility.Visible;
+            }
             else
             {
                 Hide();
                 nanny_addButton.Visibility = Visibility.Visible;
                 nanny_removeButton.Visibility = Visibility.Visible;
                 nanny_updateButton.Visibility = Visibility.Visible;
+              mother_image.Visibility = Visibility.Visible;
+                contract_image.Visibility = Visibility.Visible;
+                child_image.Visibility = Visibility.Visible;
             }
         }
 
         private void motherButon_Click(object sender, RoutedEventArgs e)
         {
             if (mother_addButton.Visibility == Visibility.Visible)
+            {
                 Hide();
+                mother_image.Visibility = Visibility.Visible;
+                contract_image.Visibility = Visibility.Visible;
+                child_image.Visibility = Visibility.Visible;
+               
+            }
             else
             {
                 Hide();
                 mother_addButton.Visibility = Visibility.Visible;
                 mother_removeButton.Visibility = Visibility.Visible;
                 mother_updateButton.Visibility = Visibility.Visible;
+                mother_image.Visibility = Visibility.Hidden;
+                contract_image.Visibility = Visibility.Visible;
+                child_image.Visibility = Visibility.Visible;
+                
             }
         }
 
         private void childButton_Click(object sender, RoutedEventArgs e)
         {
             if (child_addButton.Visibility == Visibility.Visible)
+            {
                 Hide();
+                mother_image.Visibility = Visibility.Visible;
+                contract_image.Visibility = Visibility.Visible;
+                child_image.Visibility = Visibility.Visible;
+            }
             else
             {
                 Hide();
                 child_addButton.Visibility = Visibility.Visible;
                 child_removeButton.Visibility = Visibility.Visible;
                 child_updateButton.Visibility = Visibility.Visible;
+                child_image.Visibility = Visibility.Hidden;
+                mother_image.Visibility = Visibility.Visible;
+                contract_image.Visibility = Visibility.Visible;
+              
             }
         }
 
         private void contractButton_Click(object sender, RoutedEventArgs e)
         {
             if (contract_addButton.Visibility == Visibility.Visible)
+            {
                 Hide();
+                mother_image.Visibility = Visibility.Visible;
+                contract_image.Visibility = Visibility.Visible;
+                child_image.Visibility = Visibility.Visible;
+            }
             else
             {
                 Hide();
                 contract_addButton.Visibility = Visibility.Visible;
                 contract_removeButton.Visibility = Visibility.Visible;
                 contract_updateButton.Visibility = Visibility.Visible;
+                contract_image.Visibility = Visibility.Hidden;
+                mother_image.Visibility = Visibility.Visible;
+                child_image.Visibility = Visibility.Visible;
             }
         }
+        #endregion
 
+        #region add buttons
         private void nanny_addButton_Click(object sender, RoutedEventArgs e)
         {
             add_Nanny = new Add_Nanny();
@@ -137,19 +181,24 @@ namespace PLWPF
             add_Contract = new Add_Contract();
             add_Contract.MyShow();
         }
+        #endregion
 
+        #region remove buttons
         private void nanny_removeButton_Click(object sender, RoutedEventArgs e)
         {
+            remove_Nanny = new Remove_Nanny();
             remove_Nanny.MyShow();
         }
 
         private void mother_removeButton_Click(object sender, RoutedEventArgs e)
         {
+            remove_Mother = new Remove_Mother();
             remove_Mother.MyShow();
         }
 
         private void child_removeButton_Click(object sender, RoutedEventArgs e)
         {
+            remove_Child = new Remove_Child();
             remove_Child.MyShow();
         }
 
@@ -158,5 +207,34 @@ namespace PLWPF
             remove_Contract = new Remove_Contract();
             remove_Contract.MyShow();
         }
+        #endregion
+
+        #region update buttons
+
+        private void nanny_updateButton_Click(object sender, RoutedEventArgs e)
+        {
+            update_Nanny = new Update_Nanny();
+            update_Nanny.MyShow();
+        }
+
+        private void mother_updateButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            update_Mother = new Update_Mother();
+            update_Mother.MyShow();
+        }
+
+        private void contract_updateButton_Click(object sender, RoutedEventArgs e)
+        {
+            update_Contract = new Update_Contract();
+            update_Contract.Show();
+        }
+
+        private void child_updateButton_Click(object sender, RoutedEventArgs e)
+        {
+            update_Child = new Update_Child();
+            update_Child.MyShow();
+        }
+
+        #endregion
     }
 }

@@ -17,16 +17,22 @@ namespace DAL
                 if (item.ID == n.ID)
                     throw new Exception("This Nanny has already entered!");
             DataSource.Nannies.Add(n);
+            GetNanny().Find(x => x.ID == n.ID).WorkDay = n.WorkDay;
+            GetNanny().Find(x => x.ID == n.ID).WorkTime = n.WorkTime;
         }
         public void Remove_Nanny(Nanny n)
         {
+            Nanny nanny = new Nanny();
             bool check = true;
             foreach (Nanny item in DataSource.Nannies)
                 if (item.ID == n.ID)
+                {
                     check = false;
+                    nanny = item;
+                }
             if (check)
                 throw new Exception("This Nanny does not exist!");
-            DataSource.Nannies.Remove(n);
+            DataSource.Nannies.Remove(nanny);
         }
         public void Update_Nanny(Nanny n)
         {
@@ -42,16 +48,22 @@ namespace DAL
                 if (item.ID == m.ID)
                     throw new Exception("This mother has already entered!");
             DataSource.Mothers.Add(m);
+            GetMother().Find(x => x.ID == m.ID).NannyDay = m.NannyDay;
+            GetMother().Find(x => x.ID == m.ID).NannyTime = m.NannyTime;
         }
         public void Remove_Mother(Mother m)
         {
+            Mother mother = new Mother();
             bool check = true;
             foreach (Mother item in DataSource.Mothers)
                 if (item.ID == m.ID)
+                {
                     check = false;
+                    mother = item;
+                }
             if (check)
                 throw new Exception("This nanny does not exist!");
-            DataSource.Mothers.Remove(m);
+            DataSource.Mothers.Remove(mother);
         }
         public void Update_Mother(Mother m)
         {
@@ -69,13 +81,17 @@ namespace DAL
         }
         public void Remove_Child(Child c)
         {
+            Child child = new Child();
             bool check = true;
             foreach (Child item in DataSource.Children)
                 if (item.IdC == c.IdC)
+                {
                     check = false;
+                    child = item;
+                }
             if (check)
                 throw new Exception("This child does not exist");
-            DataSource.Children.Remove(c);
+            DataSource.Children.Remove(child);
         }
         public void Update_Child(Child c)
         {
@@ -93,13 +109,17 @@ namespace DAL
         }
         public void Remove_Contract(Contract c)
         {
+            Contract contract = new Contract();
             bool check = true;
             foreach (Contract item in DataSource.Contracts)
                 if (item.Num == c.Num)
+                {
                     check = false;
+                    contract = item;
+                }
             if (check)
                 throw new Exception("This contract does not exist!");
-            DataSource.Contracts.Remove(c);
+            DataSource.Contracts.Remove(contract);
         }
         public void Update_Contract(Contract c)
         {

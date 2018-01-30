@@ -15,18 +15,14 @@ namespace BE
         private string specialNeeds;
         #endregion
         public Child() { isSpecial = false; }
-        public Child(string idC, string idM, string name, DateTime bD, string sp)
+        public Child(string idC, string idM, string name)
         {
             CheckId(idC);
             this.idC = idC;
             CheckId(idM);
             this.idM = idM;
             Name = name;
-            BirthDate = bD;
-            SpecialNeeds = sp;
-            if (sp == null)
-                isSpecial = false;
-            else isSpecial = true;
+            isSpecial = false;
         }
 
         #region properties

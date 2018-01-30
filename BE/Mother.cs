@@ -19,16 +19,12 @@ namespace BE
         #endregion 
         public Mother() { }
 
-        public Mother(string id, string l, string f, string ph, string adM, string adN, bool[] nannyD, TimeSpan[,] nannyT, bool isH)
+        public Mother(string id, string l, string f, bool isH = false)
         {
             Check_ID(id);
+            ID = id;
             L_name = l;
             F_name = f;
-            Phone = ph;
-            AddressMother = adM;
-            AddressNanny = adN;
-            NannyDay = nannyD;
-            NannyTime = nannyT;
             IsHour = isH;
         }
 

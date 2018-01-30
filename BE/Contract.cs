@@ -8,7 +8,7 @@ namespace BE
     {
         #region fields
         private static int counter = 0;
-        private readonly int num;
+        private int num;
         private string idNanny;
         private string idChild;
         private bool isMeet;
@@ -44,7 +44,7 @@ namespace BE
         #endregion
 
         #region properties
-        public int Num => num;
+        public int Num { get => num; set => num = value; }
 
         public static int Counter { get => counter; set => counter = value; }
         public string IdNanny
